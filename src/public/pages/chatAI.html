@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ngobrol dengan AI | MindSpark</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <!-- Font -->
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+     <!-- Swiper Js -->
+     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full z-50 bg-white transition duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+      <div class="flex justify-between h-16 items-center">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-8 w-auto" />
+          <span class="text-xl font-bold text-neutral-09">MindSpark</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div id="menu-desktop" class="hidden lg:flex md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="index.html#about" class="nav-link">Tentang</a>
+          <a href="landingMood.html" class="nav-link">Lacak Mood</a>
+          <a href="landingReflection.html" class="nav-link">Refleksi</a>
+          <a href="index.html#faq" class="nav-link">Bantuan?</a>
+          <div class="flex items-center space-x-4 ml-4">
+            <a href="profile.html"
+              class="text-neutral-09 px-6 py-1.5 border border-neutral-09 rounded-lg font-medium hover:bg-primary-02">Profile</a>
+            <button id="logout-btn"
+              class="bg-red-500 text-white px-6 py-1.5 border border-red-500 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+          </div>
+        </div>
+
+        <!-- Hamburger Menu for Mobile -->
+        <div class="flex items-center lg:hidden">
+          <button id="mobile-menu-button" class="lg:hidden text-neutral-09 focus:outline-none">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="md:hidden lg:hidden hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 transition duration-300">
+      <button id="close-mobile-menu"
+        class="absolute top-8 right-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-09" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-10 w-auto mb-2" />
+      <span class="text-2xl font-bold text-neutral-09 mb-8">MindSpark</span>
+      <a href="index.html" class="text-lg font-medium text-neutral-09">Beranda</a>
+      <a href="index.html#about" class="text-lg font-medium text-neutral-09">Tentang</a>
+      <a href="landingMood.html" class="text-lg font-medium text-neutral-09">Lacak Mood</a>
+      <a href="landingReflection.html" class="text-lg font-medium text-neutral-09">Refleksi</a>
+      <a href="index.html#faq" class="text-lg font-medium text-neutral-09">Bantuan?</a>
+      <div class="mt-10 flex flex-col gap-4 w-[60%] items-center">
+        <a href="profile.html"
+          class="w-1/2 text-lg text-center text-neutral-09 border border-neutral-09 py-2 rounded-lg font-medium hover:bg-neutral-100">Profile</a>
+        <button id="mobile-logout-btn"
+          class="w-1/2 text-lg text-center text-white bg-red-500 border border-red-500 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Chat Header -->
+  <div class="flex items-center p-10 pt-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-green-100 border border-neutral-09 flex items-center justify-center">
+        <i class="fas fa-robot text-success-04"></i>
+      </div>
+      <div>
+        <h2 class="font-semibold text-neutral-09">Teman AI MindSpark</h2>
+        <p class="text-xs text-neutral-06">Online</p>
+      </div>
+    </div>
+    <button class="text-neutral-07 hover:text-neutral-07">
+      <i class="fas fa-ellipsis-h"></i>
+    </button>
+  </div>
+
+ <!-- Chat Container -->
+ <main class="flex-1 overflow-y-auto p-4 space-y-4 chat-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-16" id="chatContainer">
+  <!-- Welcome message -->
+  <div class="flex justify-start">
+    <div class="ai-message p-4 max-w-xs md:max-w-md lg:max-w-lg border border-neutral-09 rounded-lg bg-lime-200">
+      <p class="text-neutral-09">
+        Hai! Saya Teman AI dari MindSpark. Kamu bisa menceritakan apa saja
+        yang sedang kamu rasakan atau pikirkan. Saya di sini untuk
+        mendengarkan dan membantumu.
+      </p>
+      <p class="mt-2 text-sm text-neutral-06">
+        Apa yang ingin kamu bicarakan hari ini?
+      </p>
+      <div class="text-xs text-neutral-06 mt-1 text-right" id="welcomeTime">12:00</div>
+    </div>
+  </div>
+</main>
+
+<!-- Input Chat -->
+<footer class="p-4 sticky bottom-0 max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+  <form id="chatForm" class="flex items-center gap-2">
+    <div class="flex-1 relative">
+      <input type="text" id="userInput" placeholder="Tuliskan yang kamu rasakan..."
+        class="w-full px-5 py-3 pr-12 rounded-lg border border-gray-300 focus:border-neutral-09 outline-none transition"
+        autocomplete="off" required />
+    </div>
+    <button type="submit" id="sendButton"
+      class="bg-primary-04 hover:bg-primary-02 text-primary-09 px-4 py-3 rounded-lg border border-neutral-09 transition">
+      <i class="fas fa-arrow-up text-green-500 text-lg group-hover:text-green-600 transition-all duration-200 group-hover:-translate-y-1 group-hover:scale-110"></i>
+    </button>
+  </form>
+</footer>
+    <!-- Scroll to Up Button -->
+    <button id="scrollToTopBtn"
+      class="fixed right-6 z-50 p-3 rounded-lg bg-primary-04 text-neutral-09 border border-2 border-neutral-09 hover:bg-primary-02 transition opacity-0 pointer-events-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+  <!-- Main Js -->
+  <script src="../../scripts/main.js"></script>
+</body>
+
+</html>

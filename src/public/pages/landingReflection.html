@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindSpark | Teman AI untuk Kesehatan Mentalmu</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Font -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Tailwind CDN -->
+
+    <!-- Swiper Js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+
+  <body>
+<!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 bg-white transition duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-8 w-auto" />
+        <span class="text-xl font-bold text-neutral-09">MindSpark</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div id="menu-desktop" class="hidden lg:flex md:flex items-center space-x-8">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="index.html#about" class="nav-link">Tentang</a>
+        <a href="landingMood.html" class="nav-link">Lacak Mood</a>
+        <a href="landingReflection.html" class="nav-link">Refleksi</a>
+        <a href="index.html#faq" class="nav-link">Bantuan?</a>
+        <div class="flex items-center space-x-4 ml-4">
+          <a href="profile.html"
+            class="text-neutral-09 px-6 py-1.5 border border-neutral-09 rounded-lg font-medium hover:bg-primary-02">Profile</a>
+          <button id="logout-btn"
+            class="bg-red-500 text-white px-6 py-1.5 border border-red-500 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+        </div>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="flex items-center lg:hidden">
+        <button id="mobile-menu-button" class="lg:hidden text-neutral-09 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden lg:hidden hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 transition duration-300">
+    <button id="close-mobile-menu"
+      class="absolute top-8 right-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-09" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-10 w-auto mb-2" />
+    <span class="text-2xl font-bold text-neutral-09 mb-8">MindSpark</span>
+    <a href="index.html" class="text-lg font-medium text-neutral-09">Beranda</a>
+    <a href="index.html#about" class="text-lg font-medium text-neutral-09">Tentang</a>
+    <a href="landingMood.html" class="text-lg font-medium text-neutral-09">Lacak Mood</a>
+    <a href="landingReflection.html" class="text-lg font-medium text-neutral-09">Refleksi</a>
+    <a href="index.html#faq" class="text-lg font-medium text-neutral-09">Bantuan?</a>
+    <div class="mt-10 flex flex-col gap-4 w-[60%] items-center">
+      <a href="profile.html"
+        class="w-1/2 text-lg text-center text-neutral-09 border border-neutral-09 py-2 rounded-lg font-medium hover:bg-neutral-100">Profile</a>
+      <button id="mobile-logout-btn"
+        class="w-1/2 text-lg text-center text-white bg-red-500 border border-red-500 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+    </div>
+  </div>
+</nav>
+
+    <!-- Section Banner Reflection-->
+    <section id="home"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-center sm:px-8 sm:gap-12 md:px-10 lg:px-20 py-32 gap-6 md:gap-10 w-full max-w-screen-xl mx-auto">
+      <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+        <div class="space-y-6 w-full max-w-lg mx-auto md:mx-0">
+          <h1 class="font-bold text-neutral-09 leading-tight text-[clamp(1.75rem,3vw,3.5rem)]">
+            Harimu, Ceritamu
+          </h1>
+          <p class="text-neutral-07 text-[clamp(1.125rem,2.5vw,1rem)]">
+            Setiap hari adalah bab baru dalam hidupmu. Yuk, luangkan waktu
+            sejenak untuk merenungkan cerita hari ini. Apa momen yang spesial?
+          </p>
+          <div class="flex justify-center md:justify-start">
+            <a href="formReflection.html"
+              class="bg-primary-04 text-neutral-09 font-semibold rounded-lg border border-neutral-09 py-2 px-6 transition hover:bg-primary-02 text-[clamp(1rem,2vw,1.125rem)] inline-block text-center">
+              Mulai Refleksi
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 flex justify-center items-center mt-4 md:mt-0">
+        <img src="../assets/icons/ic-banner-refleksi.png" alt="Home"
+          class="w-[80%] max-w-[350px] sm:max-w-sm md:max-w-md lg:max-w-md object-contain" />
+      </div>
+    </section>
+
+    <!-- Section How to Use -->
+    <section id="how-to-use" class="pB-32 px-6 sm:px-8 md:px-10 lg:px-20 w-full max-w-screen-xl mx-auto">
+      <p class="text-neutral-09 text-[clamp(1.125rem,2.5vw,1.5rem)] font-medium">
+        Luangkan Waktu untuk Refleksi
+      </p>
+      <h1 class="font-bold text-neutral-09 leading-tight text-[clamp(1.75rem,3vw,3.5rem)] mb-2">
+        Cara Memulai Refleksi Diri
+      </h1>
+      <p class="text-neutral-07 text-[clamp(1.125rem,2.5vw,1rem)] mb-10">
+        Merefleksikan pikiran dan perasaan membantumu mendapatkan kejernihan
+        hati dan tumbuh sebagai pribadi. Ikuti langkah mudah ini untuk memulai
+        perjalanan refleksimu.
+      </p>
+      <div id="howToUseSwiper" class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div
+              class="rounded-lg border border-neutral-09 p-8 hover:bg-primary-03 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-300 h-[420px] w-full flex flex-col items-start gap-4">
+              <h2 class="text-2xl font-bold">Step 1</h2>
+              <h3 class="text-xl font-medium">Cari Tempat Tenang</h3>
+              <p class="text-neutral-07 text-md">
+                Pilih sudut yang nyaman dan bebas gangguan. Lingkungan yang
+                tenang membantumu menyelami pikiran lebih dalam.
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div
+              class="rounded-lg border border-neutral-09 p-8 hover:bg-primary-03 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-300 h-[420px] w-full flex flex-col items-start gap-4">
+              <h2 class="text-2xl font-bold">Step 2</h2>
+              <h3 class="text-xl font-medium">Pilih Rentang Usiamu</h3>
+              <p class="text-neutral-07 text-md">
+                Pilih kelompok usia yang paling mewakilimu. Kami akan
+                menyesuaikan panduan dengan fase hidupmu.
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div
+              class="rounded-lg border border-neutral-09 p-8 hover:bg-primary-03 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-300 h-[420px] w-full flex flex-col items-start gap-4">
+              <h2 class="text-2xl font-bold">Step 3</h2>
+              <h3 class="text-xl font-medium">Ekspresikan Perasaanmu</h3>
+              <p class="text-neutral-07 text-md">
+                Jawab pertanyaan berikut dengan jujur. Tak ada jawaban
+                benar/salah, yang ada hanya cerita jujur dari hatimu.
+              </p>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div
+              class="rounded-lg border border-neutral-09 p-8 hover:bg-primary-03 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.8)] transition-all duration-300 h-[420px] w-full flex flex-col items-start gap-4">
+              <h2 class="text-2xl font-bold">Step 4</h2>
+              <h3 class="text-xl font-medium">Dapatkan Panduan</h3>
+              <p class="text-neutral-07 text-md">
+                Berdasarkan refleksimu, kami akan berikan insight personal untuk
+                membantumu berkembang dan merasa lebih dimengerti.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end gap-8 mt-12">
+          <!-- Tombol Prev -->
+          <div
+            class="swiper-button-prev !static !relative w-10 h-10 rounded-lg border border-neutral-09 flex items-center justify-center bg-white hover:bg-primary-02 transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </div>
+
+          <!-- Tombol Next -->
+          <div
+            class="swiper-button-next !static !relative w-10 h-10 rounded-lg border border-neutral-09 flex items-center justify-center bg-primary-04 hover:bg-primary-02 transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Advantages -->
+    <section id="advantages"
+      class="min-h-screen flex flex-col md:flex-row items-center justify-between sm:px-8 md:px-10 lg:px-20 py-20 pb-32 gap-10 w-full max-w-screen-xl mx-auto">
+      <div class="w-full md:w-1/2 flex justify-center items-center">
+        <img src="../assets/icons/ic-advantages-refleksi.png" alt="Icon Reflection"
+          class="w-[60%] sm:w-[60%] md:w-[70%] sm:max-w-sm md:max-w-md lg:max-w-md object-contain" />
+      </div>
+      <div class="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+        <div class="space-y-4 w-full max-w-lg mx-auto md:mx-0">
+          <p class="text-neutral-09 text-[clamp(1.125rem,2.5vw,1.5rem)] font-medium">
+            Hal Penting yang Harus Diketahui!
+          </p>
+          <h1 class="font-bold text-neutral-09 leading-tight text-[clamp(1.75rem,3vw,3.5rem)] mb-2">
+            Pentingnya Refleksi Diri?
+          </h1>
+          <ul class="space-y-4 text-left text-xl">
+            <li
+              class="flex items-start gap-3 transition-all duration-300 ease-in-out hover:scale-[1.02] rounded-lg p-2">
+              <div
+                class="min-w-[30px] h-[30px] mt-1 bg-primary-05 rounded-lg border border-neutral-09 items-center justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-neutral-09" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="text-neutral-07">
+                <strong class="text-neutral-09">Kenali Dirimu Lebih Dalam:</strong>
+                Kejernihan tentang perasaan, pemikiran, tujuanmu.
+              </p>
+            </li>
+            <li
+              class="flex items-start gap-3 transition-all duration-300 ease-in-out hover:scale-[1.02] rounded-lg p-2">
+              <div
+                class="min-w-[30px] h-[30px] mt-1 bg-primary-05 rounded-lg border border-neutral-09 items-center justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-neutral-09" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="text-neutral-07">
+                <strong class="text-neutral-09">Pelajaran dari Pengalaman:</strong>
+                Jadikan tantangan untuk bertumbuh.
+              </p>
+            </li>
+            <li
+              class="flex items-start gap-3 transition-all duration-300 ease-in-out hover:scale-[1.02] rounded-lg p-2">
+              <div
+                class="min-w-[30px] h-[30px] mt-1 bg-primary-05 rounded-lg border border-neutral-09 items-center justify-center items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-neutral-09" viewBox="0 0 20 20"
+                  fill="currentColor">
+                  <path fill-rule="evenodd"
+                    d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"
+                    clip-rule="evenodd" />
+                </svg>
+              </div>
+              <p class="text-neutral-07">
+                <strong class="text-neutral-09">Temukan Kedamaian:</strong>
+                roses emosimu dengan sehat untuk mengurangi stres.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div class="bg-primary-04 w-full">
+      <footer id="footer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start border-b border-neutral-09 pb-4">
+          <div class="mb-4 md:mb-0">
+            <h1 class="text-3xl font-bold">MindSpark</h1>
+            <p class="text-md">Dukungan Cerdas untuk Pikiran Lebih Sehat</p>
+          </div>
+          <div class="flex gap-40 text-md mb-4 md:mb-0">
+            <div class="flex flex-col space-y-1">
+              <a href="index.html#home" class="nav-link">Beranda</a>
+              <a href="index.html#about" class="nav-link">Tentang</a>
+            </div>
+            <div class="flex flex-col space-y-1">
+              <a href="landingMood.html" class="nav-link">Lacak Mood</a>
+              <a href="landingReflection.html" class="nav-link">Refleksi</a>
+            </div>
+            <div class="text-md">
+              <a href="index.html#faq" class="font-medium nav-l ink">Bantuan?</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center pt-4 text-md">
+          <p>© Copyright. All rights reserved.</p>
+          <div class="flex gap-3 mt-3 md:mt-0">
+            <a href="mailto:example@email.com" aria-label="Email"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.5 6.75h15a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75v-9a.75.75 0 0 1 .75-.75z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 6.75l7.5 6 7.5-6" />
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect width="18" height="18" x="3" y="3" rx="4" ry="4"></rect>
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <circle cx="17" cy="7" r="1"></circle>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12a10 10 0 10-11.6 9.87v-6.99h-2.3V12h2.3v-2.13c0-2.26 1.35-3.51 3.42-3.51.99 0 2.02.17 2.02.17v2.23h-1.14c-1.12 0-1.46.7-1.46 1.42V12h2.49l-.4 2.88h-2.09v6.99A10 10 0 0022 12z" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" aria-label="X / Twitter"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 4.75l-7.58 7.93L22 19.5h-2.74l-5.7-6.07L7.35 19.5H2.58l7.87-8.23L2 4.75h2.88l5.3 5.62L16.3 4.75H22z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scroll to Up Button -->
+    <button id="scrollToTopBtn"
+      class="fixed right-6 z-50 p-3 rounded-lg bg-primary-04 text-neutral-09 border border-2 border-neutral-09 hover:bg-primary-02 transition opacity-0 pointer-events-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+
+    <!-- Main Js -->
+    <script src="../../scripts/main.js"></script>
+  </body>
+
+</html>

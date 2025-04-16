@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflection Form | MindSpark</title>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Style -->
+  <style>
+    .selected {
+      background-color: #53bd95; /* Warna hijau pekat */
+      color: #ffffff; /* Teks putih untuk kontras */
+    }
+  </style>
+</head>
+
+<body class="bg-neutral-02">
+  <!-- Progress bar -->
+  <div class="flex justify-center gap-4 pt-12">
+    <div id="progress-1" class="h-3 w-24 rounded-lg border border-neutral-09 bg-primary-04"></div>
+    <div id="progress-2" class="h-3 w-24 rounded-lg border border-neutral-09 bg-neutral-02"></div>
+  </div>
+
+  <!-- Close Button -->
+  <div class="w-full md:w-1/2 flex items-start justify-center pb-32">
+    <button onclick="window.history.back()"
+      class="absolute top-8 left-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition"
+      aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-neutral-09" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Section Fase Usia -->
+  <section id="section-1" class="pb-32 px-6 sm:px-8 md:px-10 lg:px-20 w-full max-w-screen-xl mx-auto block">
+    <div class="text-center">
+      <h1 class="font-bold text-neutral-09 leading-tight text-3xl md:text-5xl mb-4">
+        Di Fase Mana Kamu Sekarang? <span class="text-dangers-04">*</span>
+      </h1>
+      <p class="text-neutral-07 text-base md:text-lg max-w-2xl px-4 mx-auto">
+        Pilih kelompok usia yang paling sesuai dengan kondisimu saat ini.
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-4 items-center">
+      <button id="btn-kids" onclick="selectOption('kids.html', this)"
+        class="age-btn w-full max-w-sm border border-neutral-09 rounded-lg px-5 py-2 text-md font-semibold hover:bg-primary-02 transition">
+        Bibit Pejuang (6–12 tahun)
+      </button>
+
+      <button id="btn-teens" onclick="selectOption('teens.html', this)"
+        class="age-btn w-full max-w-sm border border-neutral-09 rounded-lg px-5 py-2 text-md font-semibold hover:bg-primary-02 transition">
+        Kapten Muda (13–18 tahun)
+      </button>
+
+      <button id="btn-adults" onclick="selectOption('adults.html', this)"
+        class="age-btn w-full max-w-sm border border-neutral-09 rounded-lg px-5 py-2 text-md font-semibold hover:bg-primary-02 transition">
+        Penjelajah Hidup (19+ tahun)
+      </button>
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <button id="nextButton" onclick="goToNextSection()"
+        class="w-full max-w-sm text-center bg-primary-04 text-neutral-09 font-bold px-5 py-2 rounded-lg border border-neutral-09 hover:bg-primary-02 transition-all duration-300 opacity-50 cursor-not-allowed"
+        disabled>
+        Lanjutkan
+      </button>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script>
+    let selectedLink = "";
+    let selectedCategory = "";
+    const nextButton = document.getElementById("nextButton");
+
+    // Load data yang sebelumnya disimpan saat halaman dimuat
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedCategory = localStorage.getItem("selectedCategory");
+      if (savedCategory) {
+        const button = document.getElementById(`btn-${savedCategory}`);
+        if (button) {
+          button.classList.add("bg-primary-04", "text-neutral-09");
+          button.classList.remove("text-neutral-07");
+
+          selectedLink = `${savedCategory}.html`;
+          selectedCategory = savedCategory;
+
+          nextButton.disabled = false;
+          nextButton.classList.remove("opacity-50", "cursor-not-allowed");
+          nextButton.classList.add("cursor-pointer");
+        }
+      }
+    });
+
+    function selectOption(link, element) {
+      const buttons = document.querySelectorAll(".age-btn");
+      buttons.forEach((btn) => {
+        btn.classList.remove("bg-primary-04", "text-neutral-09");
+        btn.classList.add("text-neutral-07");
+      });
+
+      element.classList.add("bg-primary-04", "text-neutral-09");
+      element.classList.remove("text-neutral-07");
+
+      selectedLink = link;
+      selectedCategory = link.split(".")[0];
+
+      // Simpan ke localStorage
+      localStorage.setItem("selectedCategory", selectedCategory);
+
+      nextButton.disabled = false;
+      nextButton.classList.remove("opacity-50", "cursor-not-allowed");
+      nextButton.classList.add("cursor-pointer");
+    }
+
+    function goToNextSection() {
+      if (!selectedLink) {
+        alert("Silakan pilih fase usia terlebih dahulu.");
+        return;
+      }
+      // Arahkan ke halaman tujuan
+      window.location.href = selectedLink;
+    }
+
+    function loadQuestionsFor(category) {
+      console.log("Memuat pertanyaan untuk:", category);
+    }
+  </script>
+</body>
+
+</html>

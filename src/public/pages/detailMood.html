@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindSpark | Teman AI untuk Kesehatan Mentalmu</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+    <!-- Font -->
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Tailwind CDN -->
+
+    <!-- Swiper Js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  </head>
+
+  <body>
+<!-- Navbar -->
+<nav id="navbar" class="fixed w-full z-50 bg-white transition duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+    <div class="flex justify-between h-16 items-center">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-8 w-auto" />
+        <span class="text-xl font-bold text-neutral-09">MindSpark</span>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div id="menu-desktop" class="hidden lg:flex md:flex items-center space-x-8">
+        <a href="index.html" class="nav-link">Beranda</a>
+        <a href="index.html#about" class="nav-link">Tentang</a>
+        <a href="landingMood.html" class="nav-link">Lacak Mood</a>
+        <a href="landingReflection.html" class="nav-link">Refleksi</a>
+        <a href="index.html#faq" class="nav-link">Bantuan?</a>
+        <div class="flex items-center space-x-4 ml-4">
+          <a href="profile.html"
+            class="text-neutral-09 px-6 py-1.5 border border-neutral-09 rounded-lg font-medium hover:bg-primary-02">Profile</a>
+          <button id="logout-btn"
+            class="bg-red-500 text-white px-6 py-1.5 border border-red-500 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+        </div>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="flex items-center lg:hidden">
+        <button id="mobile-menu-button" class="lg:hidden text-neutral-09 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu"
+    class="md:hidden lg:hidden hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-6 transition duration-300">
+    <button id="close-mobile-menu"
+      class="absolute top-8 right-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-09" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <img src="../assets/favicon.ico" alt="MindSpark Logo" class="h-10 w-auto mb-2" />
+    <span class="text-2xl font-bold text-neutral-09 mb-8">MindSpark</span>
+    <a href="index.html" class="text-lg font-medium text-neutral-09">Beranda</a>
+    <a href="index.html#about" class="text-lg font-medium text-neutral-09">Tentang</a>
+    <a href="landingMood.html" class="text-lg font-medium text-neutral-09">Lacak Mood</a>
+    <a href="landingReflection.html" class="text-lg font-medium text-neutral-09">Refleksi</a>
+    <a href="index.html#faq" class="text-lg font-medium text-neutral-09">Bantuan?</a>
+    <div class="mt-10 flex flex-col gap-4 w-[60%] items-center">
+      <a href="profile.html"
+        class="w-1/2 text-lg text-center text-neutral-09 border border-neutral-09 py-2 rounded-lg font-medium hover:bg-neutral-100">Profile</a>
+      <button id="mobile-logout-btn"
+        class="w-1/2 text-lg text-center text-white bg-red-500 border border-red-500 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors duration-200">Keluar</button>
+    </div>
+  </div>
+</nav>
+
+  <!-- Button Back -->
+  <div class="pt-28 w-full max-w-screen-xl mx-auto">
+    <a href="./landingMood.html"
+      class="inline-flex items-center gap-2 border border-neutral-09 rounded-lg px-5 py-2 hover:bg-primary-02 transition text-neutral-09 text-md sm:text-base mb-6 sm:ml-8 md:ml-10 lg:ml-20">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+      Kembali
+    </a>
+  </div>
+
+<!-- Section Mood Chart -->
+<section id="mood-chart" class="py-16 px-6 sm:px-8 md:px-10 lg:px-20 w-full max-w-screen-xl mx-auto">
+  <p class="text-neutral-09 text-lg md:text-xl font-medium">
+    Analisis Mood Mingguan
+  </p>
+  <h1 class="font-bold text-neutral-09 leading-tight text-3xl md:text-5xl mb-6">
+    Cerita Mingguan Emosimu
+  </h1>
+
+  <div class="max-w-4xl mx-auto p-4 sm:p-6 rounded-lg">
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4">
+      <!-- Prev -->
+      <button id="prevWeek" class="p-2 rounded-lg border border-neutral-09 hover:bg-primary-04"
+        aria-label="Minggu Sebelumnya">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-09" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+  
+      <!-- Week Range -->
+      <div class="text-center">
+        <label class="text-xl text-neutral-09 mb-2 block">
+          Catatan periode:
+        </label>
+        <span id="weekRange" class="text-lg sm:text-2xl font-semibold"></span>
+      </div>
+  
+      <!-- Next -->
+      <button id="nextWeek" class="p-2 rounded-lg border border-neutral-09 hover:bg-primary-04"
+        aria-label="Minggu Berikutnya">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-neutral-09" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  
+    <!-- Loading Indicator -->
+    <div id="loading-indicator" class="text-center text-neutral-09 font-semibold mt-4 hidden">
+      Memuat data...
+    </div>
+  
+    <!-- Chart -->
+    <div class="mt-8 sm:mt-10 px-2 sm:px-4">
+      <canvas id="moodChart" height="180"></canvas>
+    </div>
+    </div>
+    </section>
+
+  <!-- Section Weekly Summary -->
+  <section class="py-20 pb-32 px-6 sm:px-8 md:px-10 lg:px-20 w-full max-w-screen-xl mx-auto">
+  <!-- Weekly Summary -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mt-20">
+      <div class="flex flex-col items-center sm:items-start gap-2 text-lg">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold">Tren Mood:</span>
+          <span id="trendMood" class="bg-primary-04 border border-neutral-09 px-5 py-1 rounded-lg font-semibold">
+            Belum Ada Data
+          </span>
+        </div>
+        <h2 class="font-semibold text-xl mt-2">Analisis Mingguan:</h2>
+        <div id="weekly-summary" class="text-neutral-07 text-lg">Loading...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 pb-32 px-6 sm:px-8 md:px-10 lg:px-20 sm:pt-0 w-full max-w-screen-xl mx-auto">
+    <p class="text-neutral-09 text-lg md:text-xl font-medium">Kenali pola mood-mu dan ambil kendali!</p>
+    <h1 class="font-bold text-neutral-09 leading-tight text-3xl md:text-5xl mb-6">Riwayat Mood-mu</h1>
+    <div class="flex flex-col gap-6">
+      <!-- Today's mood status -->
+      <div id="today-mood-status" class="border border-neutral-09 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 transform transition-transform duration-200 hover:scale-102 hover:shadow-sm">
+        <span class="text-lg" id="today-date"></span>
+        <div class="flex items-center gap-2 flex-wrap" id="today-mood-actions"></div>
+      </div>
+      <!-- Recent moods -->
+      <div id="recent-moods-container" class="space-y-4"></div>
+      <!-- Button to View All Moods -->
+      <div class="mt-6 text-right">
+        <button
+          id="lihat-semua-btn"
+          class="border border-neutral-09 px-5 py-2 rounded-md hover:bg-primary-02 transition text-md font-medium">
+          Lihat Semua
+        </button>
+      </div>
+    </div>
+  </section>
+
+    <!-- Footer -->
+    <div class="bg-primary-04 w-full">
+      <footer id="footer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start border-b border-neutral-09 pb-4">
+          <div class="mb-4 md:mb-0">
+            <h1 class="text-3xl font-bold">MindSpark</h1>
+            <p class="text-md">Dukungan Cerdas untuk Pikiran Lebih Sehat</p>
+          </div>
+          <div class="flex gap-40 text-md mb-4 md:mb-0">
+            <div class="flex flex-col space-y-1">
+              <a href="index.html#home" class="nav-link">Beranda</a>
+              <a href="index.html#about" class="nav-link">Tentang</a>
+            </div>
+            <div class="flex flex-col space-y-1">
+              <a href="landingMood.html" class="nav-link">Lacak Mood</a>
+              <a href="landingReflection.html" class="nav-link">Refleksi</a>
+            </div>
+            <div class="text-md">
+              <a href="index.html#faq" class="font-medium nav-l ink">Bantuan?</a>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center pt-4 text-md">
+          <p>© Copyright. All rights reserved.</p>
+          <div class="flex gap-3 mt-3 md:mt-0">
+            <a href="mailto:example@email.com" aria-label="Email"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.5 6.75h15a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-.75.75h-15a.75.75 0 0 1-.75-.75v-9a.75.75 0 0 1 .75-.75z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 6.75l7.5 6 7.5-6" />
+              </svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect width="18" height="18" x="3" y="3" rx="4" ry="4"></rect>
+                <circle cx="12" cy="12" r="3.5"></circle>
+                <circle cx="17" cy="7" r="1"></circle>
+              </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12a10 10 0 10-11.6 9.87v-6.99h-2.3V12h2.3v-2.13c0-2.26 1.35-3.51 3.42-3.51.99 0 2.02.17 2.02.17v2.23h-1.14c-1.12 0-1.46.7-1.46 1.42V12h2.49l-.4 2.88h-2.09v6.99A10 10 0 0022 12z" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" aria-label="X / Twitter"
+              class="border border border-neutral-09 p-2 rounded-lg hover:bg-primary-02 transition">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 4.75l-7.58 7.93L22 19.5h-2.74l-5.7-6.07L7.35 19.5H2.58l7.87-8.23L2 4.75h2.88l5.3 5.62L16.3 4.75H22z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scroll To Up Button -->
+    <button id="scrollToTopBtn"
+      class="fixed right-6 z-50 p-3 rounded-lg bg-primary-04 text-neutral-09 border border-2 border-neutral-09 hover:bg-primary-02 transition opacity-0 pointer-events-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+      </svg>
+    </button>
+
+    <script src="../../scripts/main.js"></script>
+  </body>
+
+</html>

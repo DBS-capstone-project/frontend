@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Tracker Form | MindSpark</title>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Font -->
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Tailwind CDN -->
+</head>
+
+<body class="bg-neutral-02">
+  <!-- Close Button -->
+  <button onclick="window.history.back()"
+    class="fixed top-4 left-4 md:top-8 md:left-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition z-10"
+    aria-label="Close">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-neutral-09" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  </button>
+
+  <!-- Main Content Container -->
+  <main class="main-container pt-16 md:pt-20 pb-12">
+
+<!-- Section Input Date -->
+<section class="input-date-section mb-12 md:mb-20">
+  <div class="section-content">
+    <div class="text-center mb-8">
+      <h1 class="font-bold text-neutral-09 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+        Tanggal Hari Ini<span class="text-dangers-04">*</span>
+      </h1>
+      <p class="text-neutral-07 text-base md:text-lg max-w-xl mx-auto">
+        Tanggal hari ini di-generate otomatis.
+      </p>
+    </div>
+
+    <div class="flex justify-center">
+      <div class="w-full max-w-md">
+        <label for="mood-date" class="block text-lg font-medium text-neutral-900 mb-2">
+          Tanggal<span class="text-dangers-04">*</span>
+        </label>
+        <div class="relative">
+          <input type="text" id="mood-date" placeholder="mm/dd/yy" readonly disabled
+            class="form-input text-lg rounded-lg border border-neutral-05 px-4 py-3 pr-12 bg-neutral-03 placeholder-neutral-05 cursor-not-allowed" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Section Select Mood -->
+    <section class="select-mood-section mb-12 md:mb-20">
+      <div class="section-content">
+        <div class="text-center mb-8">
+          <h1 class="font-bold text-neutral-09 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+            Lacak Mood Kamu Hari ini<span class="text-dangers-04">*</span>
+          </h1>
+          <p class="text-neutral-07 text-base md:text-lg max-w-xl mx-auto">
+            Cara lebih cerdas lacak mood & kesehatan mentalmu, didukung AI.
+          </p>
+        </div>
+
+        <div class="mood-options mood-grid">
+          <div class="mood-item flex flex-col items-center cursor-pointer p-4" data-mood="sangat_buruk">
+            <img src="../assets/icons/ic-mood-1.png" alt="Buruk" class="w-24 h-20 sm:w-20 sm:h-20" />
+            <p class="text-center text-neutral-09 font-semibold mt-3 text-sm sm:text-base">Sangat Buruk</p>
+          </div>
+          <div class="mood-item flex flex-col items-center cursor-pointer p-4" data-mood="buruk">
+            <img src="../assets/icons/ic-mood-2.png" alt="Buruk" class="w-24 h-20 sm:w-20 sm:w-20" />
+            <p class="text-center text-neutral-09 font-semibold mt-3 text-sm sm:text-base">Buruk</p>
+          </div>
+          <div class="mood-item flex flex-col items-center cursor-pointer p-4" data-mood="netral">
+            <img src="../assets/icons/ic-mood-3.png" alt="Biasa" class="w-24 h-20 sm:w-20 sm:h-20" />
+            <p class="text-center text-neutral-09 font-semibold mt-3 text-sm sm:text-base">Biasa</p>
+          </div>
+          <div class="mood-item flex flex-col items-center cursor-pointer p-4" data-mood="baik">
+            <img src="../assets/icons/ic-mood-4.png" alt="Baik" class="w-24 h-20 sm:w-20 sm:h-20" />
+            <p class="text-center text-neutral-09 font-semibold mt-3 text-sm sm:text-base">Baik</p>
+          </div>
+          <div class="mood-item flex flex-col items-center cursor-pointer p-4" data-mood="sangat_baik">
+            <img src="../assets/icons/ic-mood-5.png" alt="Sangat Baik" class="w-24 h-20 sm:w-20 sm:h-20" />
+            <p class="text-center text-neutral-09 font-semibold mt-3 text-sm sm:text-base">Sangat Baik</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Select Keyword -->
+    <section class="select-keyword-section mb-12 md:mb-20">
+      <div class="section-content">
+        <div class="text-center mb-8">
+          <h1 class="font-bold text-neutral-09 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+            Deskripsikan Mood-mu!<span class="text-dangers-04">*</span>
+          </h1>
+          <p class="text-neutral-07 text-base md:text-lg max-w-xl mx-auto">
+            Pilih kata-kata yang paling pas dengan perasaanmu saat ini.
+          </p>
+        </div>
+
+        <div class="keyword-options keyword-grid max-w-2xl mx-auto">
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Anger">
+            Marah
+          </button>
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Fear">
+            Takut
+          </button>
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Joy">
+            Senang
+          </button>
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Love">
+            Cinta
+          </button>
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Neutral">
+            Biasa Saja
+          </button>
+          <button
+            class="keyword-btn px-4 py-2 border border-neutral-09 rounded-lg font-semibold text-neutral-09 hover:bg-primary-04 transition"
+            data-keyword="Sad">
+            Sedih
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Input Reason -->
+    <section class="reason-mood-section mb-12">
+      <div class="section-content">
+        <div class="text-center mb-8">
+          <h1 class="font-bold text-neutral-09 text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+            Alasan di Balik Mood-mu<span class="text-dangers-04">*</span>
+          </h1>
+          <p class="text-neutral-07 text-base md:text-lg max-w-xl mx-auto">
+            Isi dengan jujur, kami ingin mendengarmu
+          </p>
+        </div>
+
+        <div class="max-w-2xl mx-auto">
+          <textarea id="reason"
+            class="reason-textarea w-full border-2 border-neutral-300 rounded-lg px-4 py-3 text-base placeholder-neutral-05 focus:ring-neutral-09 resize-none"
+            placeholder="Ceritakan apa yang mempengaruhi moodmu ..."></textarea>
+        </div>
+      </div>
+    </section>
+
+    <!-- Submit Button -->
+    <div class="submit-section flex justify-center mt-8">
+      <a id="submitBtn"
+        class="bg-primary-04 text-neutral-09 font-semibold px-8 py-3 rounded-lg border border-neutral-09 hover:bg-primary-02 transition text-lg">
+        Kirim & Selesai
+      </a>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary-01: #f5ffe8;
+  --color-primary-02: #e8ffc5;
+  --color-primary-03: #d5ff9e;
+  --color-primary-04: #c5ff75;
+  --color-primary-05: #c5ff75;
+  --color-primary-06: #b2e86d;
+  --color-primary-07: #9fd660;
+  --color-primary-08: #8abf50;
+  --color-primary-09: #6f9e3d;
+
+  /* Secondary Colors */
+  --color-secondary-01: #e5ecff;
+  --color-secondary-02: #bcd3ff;
+  --color-secondary-03: #92b8ff;
+  --color-secondary-04: #699dff;
+  --color-secondary-05: #4072fe;
+  --color-secondary-06: #365fd6;
+  --color-secondary-07: #2d4eae;
+  --color-secondary-08: #243e86;
+  --color-secondary-09: #1b2f5f;
+
+  /* Neutral Colors */
+  --color-neutral-01: #ffffff;
+  --color-neutral-02: #fbfbfb;
+  --color-neutral-03: #f0f0f0;
+  --color-neutral-04: #e0e0e0;
+  --color-neutral-05: #c0c0c0;
+  --color-neutral-06: #808080;
+  --color-neutral-07: #606060;
+  --color-neutral-08: #303030;
+  --color-neutral-09: #090502;
+
+  /* Success Colors */
+  --color-success-01: #bfe8c2;
+  --color-success-02: #9fdca4;
+  --color-success-03: #81c784;
+  --color-success-04: #5fc468;
+  --color-success-05: #4da956;
+  --color-success-06: #3b8e44;
+
+  /* Danger Colors */
+  --color-dangers-01: #ffe6d6;
+  --color-dangers-02: #ffc7ad;
+  --color-dangers-03: #ffa283;
+  --color-dangers-04: #ff4332;
+  --color-dangers-05: #b71926;
+  --color-dangers-06: #981722;
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-neutral-02 text-neutral-09;
+    font-family: "SF Pro Display", sans-serif;
+  }
+}

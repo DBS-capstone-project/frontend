@@ -1,0 +1,34 @@
+{
+  "name": "mindspark-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for MindSpark application",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./dist/styles/output.css --minify",
+    "dev:css": "tailwindcss -i ./src/styles/input.css -o ./dist/styles/output.css --watch"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "copy-webpack-plugin": "^13.0.0",
+    "css-loader": "^6.7.3",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "html-webpack-tags-plugin": "^3.0.2",
+    "mini-css-extract-plugin": "^2.9.0",
+    "postcss": "^8.4.31",
+    "postcss-loader": "^7.3.3",
+    "style-loader": "^3.3.2",
+    "tailwindcss": "^3.4.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "keywords": [],
+  "author": "mindspark capstone febe team",
+  "license": "ISC"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Tracker Form | MindSpark</title>
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  <!-- Font -->
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  <!-- Icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Swiper -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- Tailwind CDN -->
+
+  <!-- Date Input Js -->
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+
+<body class="bg-neutral-02 flex items-center justify-center min-h-screen px-4">
+  <div class="text-center max-w-md w-full">
+    <!-- Icon centang -->
+    <div class="w-40 h-40 mx-auto bg-success-04 rounded-lg border border-neutral-09 flex items-center justify-center mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-30 w-30 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <!-- Heading -->
+    <h1 class="text-5xl font-bold mb-6 mt-12">High five!✋</h1>
+    <p id="reflection-text" class="text-neutral-07 mb-8">
+      Terima kasih sudah mencatat perasaanmu hari ini. Besok kita lanjutkan lagi, ya? Kamu luar biasa konsisten!
+    </p>
+
+    <!-- Feedback Message and Loading Indicator -->
+    <div id="loading-indicator" class="text-neutral-07 mb-8">Loading Feedback...
+      Kamu bisa menunggu atau langsung ke segmen berikutnya.</div>
+    <div id="feedback-message" class="ftext-neutral-07 mb-8"></div>
+
+    <!-- Tombol -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="index.html"
+        class="px-5 py-2 border border-neutral-09 rounded-lg text-neutral-09 font-semibold hover:bg-primary-02">
+        Kembali ke Beranda
+      </a>
+      <a href="landingReflection.html"
+        class="px-6 py-2 rounded-lg bg-primary-04 text-neutral-09 font-semibold hover:bg-primary-02 border border-neutral-09">
+        Refleksi Diri
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>

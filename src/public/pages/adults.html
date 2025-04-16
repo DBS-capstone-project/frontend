@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reflection Form | MindSpark</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  
+
+  </head>
+
+  <body class="bg-neutral-02">
+    <!-- Progress bar -->
+    <div class="flex justify-center gap-4 pt-12">
+      <div id="progress-1" class="h-3 w-24 rounded-lg border border-neutral-09 bg-neutral-02"></div>
+      <div id="progress-2" class="h-3 w-24 rounded-lg border border-neutral-09 bg-primary-04"></div>
+    </div>
+
+    <!-- Back Arrow Button -->
+    <div class="w-full md:w-1/2 flex items-start justify-center pb-32">
+      <a href="formReflection.html"
+        class="absolute top-8 left-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition"
+        aria-label="Kembali ke sebelumnya">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-09" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="text-center">
+      <h1 class="font-bold text-neutral-09 leading-tight text-3xl md:text-5xl mb-4">
+        Refleksikan Harimu <span class="text-dangers-04">*</span>
+      </h1>
+      <p class="text-neutral-07 text-base md:text-lg max-w-2xl px-4 mx-auto">
+        Luangkan waktu sejenak untuk menengok kembali hari ini. Apa yang membuatmu tersenyum? Tantangan apa yang kamu
+        hadapi? Bagaimana perasaanmu sekarang? Mari kita simpan cerita dan emosimu bersama!
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form id="reflection-form" class="max-w-3xl mx-auto p-4 mt-12 px-4 sm:px-6 lg:px-16 space-y-10" data-category="Adults">
+      <!-- Pertanyaan 1 -->
+      <div class="question space-y-4" data-question="question_1">
+        <h3 class="text-lg font-semibold">1. Bagaimana perasaanmu hari ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_1" value="senang" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              😊 Senang
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_1" value="biasa saja" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🙂 Biasa saja
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_1" value="sedikit sedih" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              😐 Sedikit sedih
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_1" value="sangat sedih" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              😢 Sangat sedih
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div class="question space-y-4" data-question="question_2">
+        <h3 class="text-lg font-semibold">9. Seberapa puaskah kamu dengan harimu hari ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_9" value="sangat puas" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐⭐⭐ Sangat puas
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="cukup puas" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐⭐ Cukup puas
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="biasa saja" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐ Biasa saja
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="kurang puas" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐ Kurang puas
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="tidak puas" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐ Tidak puas sama sekali
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 3 -->
+      <div class="question space-y-4" data-question="question_3">
+        <h3 class="text-lg font-semibold">3. Bagaimana perasaanmu tentang pekerjaanmu hari ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_3" value="sangat puas" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟩 Sangat puas
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_3" value="cukup puas" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟨 Cukup puas
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_3" value="tidak puas" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟥 Tidak puas
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 4 -->
+      <div class="question space-y-4" data-question="question_4">
+        <h3 class="text-lg font-semibold">4. Apakah kamu merasa stres akhir-akhir ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_4" value="jarang sekali" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟩 Tidak ada kesulitan
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_4" value="kadang kadang" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟨 Kadang kadang
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_4" value="sering" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟥 Sering
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 5 -->
+      <div class="question space-y-4" data-question="question_5">
+        <h3 class="text-lg font-semibold">5. Apa aktivitas favoritmu hari ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_5" value="minum kopi teh" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ☕ Minum kopi/teh
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_5" value="membaca buku" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              📚 Membaca buku
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_5" value="mendengarkan musik" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🎧 Mendengarkan musik
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_5" value="olahraga" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🏃‍♀️ Olahraga
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 6 -->
+      <div class="question space-y-4" data-question="question_6">
+        <h3 class="text-lg font-semibold">6. Seberapa sering kamu berinteraksi dengan orang lain hari ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_6" value="banyak sekali" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟩 Banyak sekali
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_6" value="hanya sebentar" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟨 Hanya sebentar
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_6" value="tidak sama sekali" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟥 Tidak sama sekali
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 7 -->
+      <div class="question space-y-4" data-question="question_7">
+        <h3 class="text-lg font-semibold">7. Apakah kamu merasa didukung oleh orang-orang di sekitarmu?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_7" value="selalu" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟩 Selalu
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_7" value="kadang kadang" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟨 Kadang-kadang
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_7" value="tidak pernah" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🟥 Tidak pernah
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 8 -->
+      <div class="question space-y-4" data-question="question_8">
+        <h3 class="text-lg font-semibold">8. Apa yang ingin kamu lakukan besok?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_8" value="minum kopi teh" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ☕ Minum kopi/teh
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_8" value="membaca buku" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              📚 Membaca buku
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_8" value="mendengarkan musik" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🎧 Mendengarkan musik
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_8" value="olahraga" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🏃‍♀️ Olahraga
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 9 -->
+      <div class="question space-y-4" data-question="question_9">
+        <h3 class="text-lg font-semibold">9. Seberapa yakin kamu dengan tujuan hidupmu saat ini?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_9" value="sangat yakin" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐⭐⭐ Sangat yakin
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="cukup yakin" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐⭐ Cukup yakin
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="biasa saja" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐⭐ Biasa saja
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="kurang yakin" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐⭐ Kurang yakin
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_9" value="tidak yakin sama sekali" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              ⭐ Tidak yakin sama sekali
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 10 -->
+      <div class="question space-y-4" data-question="question_10">
+        <h3 class="text-lg font-semibold">10. Apa yang bisa kamu lakukan lebih baik besok?</h3>
+        <div class="space-y-4">
+          <label class="block">
+            <input type="radio" name="question_10" value="lebih fokus" class="peer hidden" required />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🧠 Lebih fokus
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_10" value="lebih aktif" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              💪 Lebih aktif
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_10" value="lebih baik kepada orang lain" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🤝 Lebih baik kepada orang lain
+            </div>
+          </label>
+
+          <label class="block">
+            <input type="radio" name="question_10" value="lebih banyak istirahat" class="peer hidden" />
+            <div
+              class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
+              🛋️ Lebih banyak istirahat
+            </div>
+          </label>
+        </div>
+      </div>
+
+ <!-- Tombol Submit -->
+ <div class="flex justify-center pt-8 pb-32">
+  <button
+    id="submit-reflection"
+    class="bg-primary-04 text-neutral-09 font-semibold px-5 py-2 rounded-lg border border-neutral-09 hover:bg-primary-02 transition-all duration-300"
+  >
+    Kirim & Selesai
+  </button>
+</div>
+</form>
+  </body>
+
+</html>

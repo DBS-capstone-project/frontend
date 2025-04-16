@@ -22,10 +22,13 @@
    ```bash
    npm install
 2. **Build Tailwind CSS**
+   ```bash
    npm run build:css
-3. **Build the app**
+4. **Build the app**
+   ```bash
    npm run build
-4. **Start the server**
+6. **Start the server**
+   ```bash
    npm start
 
    

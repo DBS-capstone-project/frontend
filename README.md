@@ -19,6 +19,7 @@
 ## How to Use
 
 1. **Install dependencies**
+   ```bash
    npm install
 2. **Build Tailwind CSS**
    npm run build:css

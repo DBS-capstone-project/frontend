@@ -31,4 +31,15 @@
    ```bash
    npm start
 
-   
+---
+
+## Credits
+
+- [Amelia Cahyani](https://github.com/ameliacahyanii) – Team Lead & Frontend Developer  
+- [Shiti Azzahra](https://github.com/azzahrarinaldi) – Content Writer & Frontend Developer
+- [Muhammad Miftahul Muhtadin](https://github.com/miftahul-2225) – Frontend & Motion UI Developer
+- [Felix Raymond](https://github.com/lixsukagits) – Backend & Integration   
+- [Ridho Kurniawan](https://github.com/ridhokurniawan-u) – AI/ML Engineer & RAG Integrator
+- [Randi Dwi Nur Cahyo](https://github.com/ForensicID) – AI/ML Engineer & Web Deployment
+
+---

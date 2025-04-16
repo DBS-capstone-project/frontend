@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sign Up Page for MindSpark - Platform dukung kesehatan mentalmu." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up | MindSpark</title>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+  
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  </head>
+
+  <body class="bg-neutral-02">
+    <div class="min-h-screen flex flex-col md:flex-row">
+      <div class="w-full md:w-1/2 py-32 md:p-12 flex flex-col justify-center">
+        <form action="" class="space-y-4 w-full max-w-md mx-auto">
+          <h1 class="text-3xl font-bold text-neutral-09">
+            Bergabunglah dan Mulai Hari yang Lebih Sehat
+          </h1>
+          <p class="text-neutral-07 text-md">
+            Daftar gratis sekarang dan eksplor fitur-fitur kami yang dirancang
+            untuk dukung kesehatan mentalmu.
+          </p>
+          <div>
+            <label class="block text-neutral-09 font-medium text-md mb-1">
+              Nama Lengkap <span class="text-red-500">*</span>
+            </label>
+            <input type="text" placeholder="nama lengkap" required
+              class="w-full px-4 py-2 border border-neutral-05 rounded-lg text-md placeholder:text-md focus:border-neutral-09 outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-neutral-09 font-medium text-md mb-1">
+              Email <span class="text-red-500">*</span>
+            </label>
+            <input type="email" placeholder="ex.youremail@gmail.com" required
+              class="w-full px-4 py-2 border border-neutral-05 rounded-lg text-md placeholder:text-md focus:border-neutral-09 outline-none transition" />
+          </div>
+          <div>
+            <label class="block text-neutral-09 font-medium text-md mb-1">
+              Password <span class="text-red-500">*</span>
+            </label>
+            <div class="relative">
+              <input id="password" type="password" placeholder="min. 6 karakter" minlength="6" required
+                class="w-full px-4 py-2 border border-neutral-05 rounded-lg text-md placeholder:text-md focus:border-neutral-09 outline-none transition pr-4" />
+            </div>
+          </div>
+          <div class="text-right">
+            <a href="#" class="text-neutral-06 text-md hover:underline">
+              Lupa password?
+            </a>
+          </div>
+          <button type="submit"
+            class="w-full bg-primary-04 py-2 font-bold rounded-lg text-md text-neutral-09 hover:bg-primary-02 border border-neutral-09 transition">
+            Buat Akun
+          </button>
+          <p class="text-center text-neutral-06 text-md">
+            Sudah punya akun?
+            <a href="login.html" class="text-primary-07 font-medium hover:underline">
+              Masuk Disini
+            </a>
+          </p>
+        </form>
+        <div class="mt-12 text-md text-neutral-07 text-center text-base">
+          <p>
+            Dengan melanjutkan, kamu menyetujui
+            <a href="termsConditions.html" class="font-semibold hover:underline">Syarat & Ketentuan</a>
+          </p>
+          <p>
+            MindSpark dan telah membaca
+            <a href="privacyPolicy.html" class="font-semibold hover:underline">Kebijakan Privasi.</a>
+          </p>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2 bg-primary-04 flex items-center justify-center p-20">
+        <button onclick="window.history.back()"
+          class="absolute top-8 right-12 w-10 h-10 flex items-center justify-center border border-neutral-09 rounded-lg hover:bg-primary-02 transition"
+          aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-neutral-09" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <img src="../assets/icons/ic-signup.png" alt="Register Illustration"
+          class="max-h-2/3 object-contain" />
+      </div>
+    </div>
+    
+  </body>
+
+
+</html>

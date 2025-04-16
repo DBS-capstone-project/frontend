@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reflection Form | MindSpark</title>
     <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
-  
+
 
   </head>
 
@@ -40,7 +40,8 @@
     </div>
 
     <!-- Form -->
-    <form id="reflection-form" class="max-w-3xl mx-auto p-4 mt-12 px-4 sm:px-6 lg:px-16 space-y-10" data-category="Adults">
+    <form id="reflection-form" class="max-w-3xl mx-auto p-4 mt-12 px-4 sm:px-6 lg:px-16 space-y-10"
+      data-category="Adults">
       <!-- Pertanyaan 1 -->
       <div class="question space-y-4" data-question="question_1">
         <h3 class="text-lg font-semibold">1. Bagaimana perasaanmu hari ini?</h3>
@@ -81,10 +82,10 @@
 
       <!-- Pertanyaan 2 -->
       <div class="question space-y-4" data-question="question_2">
-        <h3 class="text-lg font-semibold">9. Seberapa puaskah kamu dengan harimu hari ini?</h3>
+        <h3 class="text-lg font-semibold">2. Seberapa puaskah kamu dengan harimu hari ini?</h3>
         <div class="space-y-4">
           <label class="block">
-            <input type="radio" name="question_9" value="sangat puas" class="peer hidden" required />
+            <input type="radio" name="question_2" value="sangat puas" class="peer hidden" required />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
               ⭐⭐⭐⭐⭐ Sangat puas
@@ -92,7 +93,7 @@
           </label>
 
           <label class="block">
-            <input type="radio" name="question_9" value="cukup puas" class="peer hidden" />
+            <input type="radio" name="question_2" value="cukup puas" class="peer hidden" />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
               ⭐⭐⭐⭐ Cukup puas
@@ -100,7 +101,7 @@
           </label>
 
           <label class="block">
-            <input type="radio" name="question_9" value="biasa saja" class="peer hidden" />
+            <input type="radio" name="question_2" value="biasa saja" class="peer hidden" />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
               ⭐⭐⭐ Biasa saja
@@ -108,7 +109,7 @@
           </label>
 
           <label class="block">
-            <input type="radio" name="question_9" value="kurang puas" class="peer hidden" />
+            <input type="radio" name="question_2" value="kurang puas" class="peer hidden" />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
               ⭐⭐ Kurang puas
@@ -116,7 +117,7 @@
           </label>
 
           <label class="block">
-            <input type="radio" name="question_9" value="tidak puas" class="peer hidden" />
+            <input type="radio" name="question_2" value="tidak puas" class="peer hidden" />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
               ⭐ Tidak puas sama sekali
@@ -127,7 +128,7 @@
 
       <!-- Pertanyaan 3 -->
       <div class="question space-y-4" data-question="question_3">
-        <h3 class="text-lg font-semibold">3. Bagaimana perasaanmu tentang pekerjaanmu hari ini?</h3>
+        <h3 class="text-lg font-semibold">3. Bagaimana perasaanmu tentang pekerjaan/kariermu hari ini?</h3>
         <div class="space-y-4">
           <label class="block">
             <input type="radio" name="question_3" value="sangat puas" class="peer hidden" required />
@@ -163,7 +164,7 @@
             <input type="radio" name="question_4" value="jarang sekali" class="peer hidden" required />
             <div
               class="w-full text-start px-3 py-3 border rounded-lg peer-checked:bg-primary-04 peer-checked:text-neutral-09 border border-neutral-09 transition-colors duration-200 cursor-pointer">
-              🟩 Tidak ada kesulitan
+              🟩 Jarang sekali
             </div>
           </label>
 
@@ -405,16 +406,14 @@
         </div>
       </div>
 
- <!-- Tombol Submit -->
- <div class="flex justify-center pt-8 pb-32">
-  <button
-    id="submit-reflection"
-    class="bg-primary-04 text-neutral-09 font-semibold px-5 py-2 rounded-lg border border-neutral-09 hover:bg-primary-02 transition-all duration-300"
-  >
-    Kirim & Selesai
-  </button>
-</div>
-</form>
+      <!-- Tombol Submit -->
+      <div class="flex justify-center pt-8 pb-32">
+        <button id="submit-reflection"
+          class="bg-primary-04 text-neutral-09 font-semibold px-5 py-2 rounded-lg border border-neutral-09 hover:bg-primary-02 transition-all duration-300">
+          Kirim & Selesai
+        </button>
+      </div>
+    </form>
   </body>
 
 </html>

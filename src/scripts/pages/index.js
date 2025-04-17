@@ -4,14 +4,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const lacakBtnDesktop = document.querySelector('.nav-link[href="landingMood.html"]');
   const refleksiBtnDesktop = document.querySelector('.nav-link[href="landingReflection.html"]');
 
+  // Protect newly added buttons
+  const startJourneyBtn = document.getElementById("start-journey-btn");
+  const startNowBtn = document.getElementById("start-now-btn");
+  const startNowSmallBtn = document.getElementById("start-now-small-btn");
+
+  // Retrieve user data from localStorage
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  // Function to protect buttons for non-logged-in users
+  const protectButton = (button, targetPage) => {
+    if (!user && button) {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Anda harus login terlebih dahulu.");
+        window.location.href = "login.html";
+      });
+    } else if (user && button) {
+      button.href = targetPage; // Allow navigation if logged in
+    }
+  };
+
+  // Protect all buttons
+  protectButton(startJourneyBtn, "landingMood.html");
+  protectButton(startNowBtn, "landingReflection.html");
+  protectButton(startNowSmallBtn, "landingMood.html");
+
   // Validate that required elements exist in the DOM
   if (!authSection || !lacakBtnDesktop || !refleksiBtnDesktop) {
     console.error('One or more required elements are missing in the DOM.');
     return;
   }
-
-  // Retrieve user data from localStorage
-  const user = JSON.parse(localStorage.getItem("user"));
 
   // Function to update auth buttons in desktop navbar
   const updateDesktopAuthButtons = () => {
@@ -177,10 +200,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     // Check if the user has submitted mood or reflection today
     const moodResponse = await fetch(
-      `api/mood/check?user_id=${user.id}&date=${today}`
+      `http://tidak.fun:3000/api/mood/check?user_id=${user.id}&date=${today}`
     );
     const reflectionResponse = await fetch(
-      `api/reflection/check?user_id=${user.id}&date=${today}`
+      `http://tidak.fun:3000/api/reflection/check?user_id=${user.id}&date=${today}`
     );
 
     if (!moodResponse.ok || !reflectionResponse.ok) {
@@ -220,4 +243,3 @@ function addChatBotLinkToNavbar() {
     mobileMenu.appendChild(chatBotLinkMobile);
   }
 }
-
